@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /tmp/
+Allow: /
+
+Sitemap: https://remont-telefonov-izhevsk.ru/sitemap.xml

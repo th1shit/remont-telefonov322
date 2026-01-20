@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Сервис ремонта телефонов Ижевск — 10+ лет опыта, 5000+ клиентов</title>
+<meta name="description" content="Сервисный центр Ижевск: 10+ лет опыта, 12 мастеров, 5000+ починили телефонов. Оригинальные запчасти, гарантия 12 месяцев, срочный ремонт за 1 час.">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --gray-dark: #333;
+            --gray: #666;
+            --gray-light: #ccc;
+            --white: #fff;
+            --accent: #f0f0f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--gray); background: var(--white);
+        }
+        nav {
+            background: var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { color: var(--white); font-size: 1.8rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { 
+            color: var(--gray-light); text-decoration: none; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; }
+        .hamburger span { width: 25px; height: 3px; background: var(--white); margin: 3px 0; transition: 0.3s; }
+        
+        .hero-about {
+            background-image: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.8)), 
+                              url('https://images.unsplash.com/photo-1588072423092-29ecadd6ec75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center; filter: grayscale(1);
+            color: var(--white); text-align: center; padding: 6rem 2rem;
+        }
+        .hero-about h1 { font-size: 3rem; margin-bottom: 1rem; opacity: 0.95; }
+        .hero-about p { font-size: 1.3rem; max-width: 600px; margin: 0 auto 2rem; }
+        
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 3rem 0; }
+        .stats { background: var(--accent); padding: 2rem; border-radius: 10px; text-align: center; }
+        .stat-number { font-size: 3rem; color: var(--black); font-weight: bold; display: block; }
+        .stat-label { color: var(--gray); font-size: 1.1rem; }
+        
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .feature { text-align: center; }
+        .feature-icon { font-size: 3rem; color: var(--gray-dark); margin-bottom: 1rem; }
+        
+        .cta-section {
+            background: var(--black); color: var(--white); text-align: center; padding: 4rem 2rem;
+        }
+        .cta { 
+            display: inline-block; background: var(--white); color: var(--black); padding: 1.2rem 3rem;
+            text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        .cta:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,255,255,0.3); }
+        
+        footer { background: var(--gray-dark); color: var(--gray-light); text-align: center; padding: 2rem; margin-top: 4rem; }
+        .contacts { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+        .contacts a { color: var(--gray-light); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--black);
+                         flex-direction: column; padding: 1rem; gap: 1rem; }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-about h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Ремонт Телефонов Ижевск</div>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-about">
+        <h1>10+ лет возвращаем телефоны к жизни</h1>
+        <p>Более 5000 отремонтированных устройств. Наши мастера знают каждую микросхему.</p>
+    </section>
+
+<div class="container">
+    <section class="about-content">
+        <h2>Почему выбирают нас 10+ лет подряд</h2>
+        <div class="about-grid">
+            <div>
+                <h3>Наш путь с 2015 года</h3>
+                <p>Сервисный центр "Ремонт Телефонов Ижевск" начал работу в 2015 году как небольшая мастерская в центре города. За эти годы мы выросли до профессионального сервиса с 12 опытными мастерами и более 5000 отремонтированных устройств.</p>
+                <p>Мы начинали с ремонта iPhone 6 и Samsung Galaxy S6, а сегодня восстанавливаем новейшие флагманы 2026 года. За 10 лет накопили уникальный опыт работы со всеми моделями и брендами — от Apple и Samsung до Xiaomi, Huawei, OnePlus и даже старых Nokia.</p>
+                <p><strong>98% клиентов возвращаются</strong> и рекомендуют нас друзьям. Это лучший показатель нашего профессионализма.</p>
+            </div>
+            <div class="stats">
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">Отремонтировано устройств</span>
+                <br><br>
+                <span class="stat-number">12</span>
+                <span class="stat-label">Опытных мастеров</span>
+                <br><br>
+                <span class="stat-number">24</span>
+                <span class="stat-label">Часа максимальный срок ремонта</span>
+                <br><br>
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Довольных клиентов</span>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="team-section">
+        <h2 style="margin-bottom: 40px; margin-top: 40px;">Наша команда профессионалов</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">👨‍🔧</div>
+                <h4>Иван Петров</h4>
+                <p><strong>Старший мастер (15 лет опыта)</strong><br>Специалист по Apple и Samsung. Починил более 2000 iPhone.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔬</div>
+                <h4>Мария Сидорова</h4>
+                <p><strong>Микросхемщик (8 лет опыта)</strong><br>Восстановление плат после воды и перегрева. 95% успеха.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚙️</div>
+                <h4>Алексей Козлов</h4>
+                <p><strong>Инженер по прошивкам (10 лет опыта)</strong><br>Работа с любыми чипами и контроллерами.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💻</div>
+                <h4>Дмитрий Волков</h4>
+                <p><strong>Диагностика (12 лет опыта)</strong><br>Находит любую неисправность за 15 минут.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="process-section">
+        <h2 style="margin-bottom: 40px; margin-top: 40px;">Прозрачный процесс ремонта</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔍</div>
+                <h4>1. Бесплатная диагностика</h4>
+                <p>Проверяем устройство за 15 минут. Называем точную стоимость и сроки. Ничего не навязываем.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔧</div>
+                <h4>2. Согласование и ремонт</h4>
+                <p>Показываем разобранный телефон, согласовываем детали. Ремонтируем в вашем присутствии или сдаем в работу.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✅</div>
+                <h4>3. Тестирование и гарантия</h4>
+                <p>Проверяем работоспособность 2 часа. Даем гарантию от 3 до 12 месяцев на все работы.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h4>4. Выдача готового устройства</h4>
+                <p>Полная проверка при выдаче. Консультация по эксплуатации и уходу.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="features">
+        <h2 style="grid-column: 1 / -1; text-align: center; margin-top: 40px;">Почему мы лучше других сервисов Ижевска</h2>
+        <div class="feature">
+            <div class="feature-icon">🏆</div>
+            <h4>Только оригинальные запчасти</h4>
+            <p>Прямые поставки от проверенных производителей. Никаких "ноунейм" комплектующих с AliExpress.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⏱️</div>
+            <h4>Срочный ремонт за 1 час</h4>
+            <p>Экран, батарея, разъем зарядки, динамик — меняем прямо при вас без записи.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h4>Гарантия до 12 месяцев</h4>
+            <p>Бесплатный переремонт при повторной поломке. Даже если вы сами уроните телефон повторно.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💾</div>
+            <h4>100% сохранение данных</h4>
+            <p>Восстанавливаем фото, видео, контакты даже после воды, падения или сбоя прошивки.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <h4>5000+ отзывов 4.9/5</h4>
+            <p>Лучшие оценки на Яндекс.Картах и 2GIS среди сервисов Ижевска.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🎓</div>
+            <h4>Обучаем клиентов</h4>
+            <p>Давем рекомендации по уходу, эксплуатации и продлению срока службы гаджетов.</p>
+        </div>
+    </section>
+
+
+    <section class="reviews-section">
+        <h2 style="margin-bottom: 40px; margin-top: 40px;grid-column: 1 / -1; text-align: center;">Что говорят наши клиенты</h2>
+        <div class="features">
+            <div class="feature">
+                <p>"<strong>iPhone 13 Pro упал в воду</strong> — мастер Мария спасла все фото с отпуска! Телефон работает как новый. Рекомендую!"</p>
+                <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">— Алексей К., ноябрь 2025</p>
+            </div>
+            <div class="feature">
+                <p>"<strong>Замена экрана Samsung S23 за 40 минут</strong> прямо при мне. Качество оригинальное, цена адекватная."</p>
+                <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">— Ольга М., декабрь 2025</p>
+            </div>
+            <div class="feature">
+                <p>"<strong>Восстановили данные с утопленника</strong>. Думал все потеряно, а тут за день все вернули. Профессионалы!"</p>
+                <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">— Сергей П., январь 2026</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Готовы вернуть вашему телефону жизнь?</h2>
+            <p style="max-width: 500px; margin: 0 auto 2rem;">Бесплатная диагностика в день обращения. Звоните сейчас!</p>
+            <a href="booking.html" class="cta">Записаться на ремонт</a>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="container">
+            <h3>Контакты</h3>
+            <p>Ижевск, ул. Примерная, 123 (центр города)</p>
+            <p>Тел: +7 (912) 345-67-89 | Email: info@remont-telefonov-izhevsk.ru</p>
+            <div class="contacts">
+                <a href="tel:+79123456789">Позвонить</a>
+                <a href="mailto:info@remont-telefonov-izhevsk.ru">Написать</a>
+                <a href="#">WhatsApp</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2026 Ремонт Телефонов Ижевск. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

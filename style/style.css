@@ -1,0 +1,187 @@
+        :root {
+            --black: #1a1a1a;
+            --gray-dark: #333;
+            --gray: #666;
+            --gray-light: #ccc;
+            --white: #fff;
+            --accent: #f0f0f0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray);
+            background: var(--white);
+        }
+        nav {
+            background: var(--black);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--white);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--black) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .service-card {
+            background: var(--accent);
+            padding: 1rem; /* Уменьшил padding для картинки */
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--gray-light);
+            height: 100%; /* Равная высота карточек */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 180px; /* Фиксированная высота для всех карточек */
+            object-fit: cover; /* Картинка заполнит весь блок без искажений */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: var(--black);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            flex-grow: 1; /* Текст растянется на оставшееся место */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .service-card h3 {
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        footer {
+            background: var(--gray-dark);
+            color: var(--gray-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        .contacts {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .contacts a {
+            color: var(--gray-light);
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--black);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }

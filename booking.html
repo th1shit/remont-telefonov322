@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на ремонт телефонов Ижевск | Онлайн форма, курьер бесплатно</title>
+<meta name="description" content="Запишитесь на ремонт телефона в Ижевске онлайн. Срочный ремонт за 1 час, бесплатный выезд курьера, диагностика бесплатно. iPhone, Samsung, Xiaomi.">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --gray-dark: #333;
+            --gray: #666;
+            --gray-light: #ccc;
+            --white: #fff;
+            --accent: #f0f0f0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: var(--gray); background: var(--white);
+        }
+        nav {
+            background: var(--black); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { color: var(--white); font-size: 1.8rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { 
+            color: var(--gray-light); text-decoration: none; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; }
+        .hamburger span { width: 25px; height: 3px; background: var(--white); margin: 3px 0; transition: 0.3s; }
+        
+        .hero-booking {
+            background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8));
+            background-size: cover; background-position: center; filter: grayscale(1);
+            color: var(--white); text-align: center; padding: 6rem 2rem;
+        }
+        .hero-booking h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+        
+        .booking-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 3rem 0;
+        }
+        
+        .form-section {
+            background: var(--accent); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .form-section h2 { color: var(--black); margin-bottom: 1.5rem; text-align: center; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; color: var(--gray-dark); margin-bottom: 0.5rem; font-weight: 500; }
+        input, select, textarea {
+            width: 100%; padding: 0.8rem; border: 2px solid var(--gray-light); border-radius: 5px;
+            font-size: 1rem; transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none; border-color: var(--gray-dark); box-shadow: 0 0 0 3px rgba(51,51,51,0.1);
+        }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 0.5rem; }
+        .checkbox-group input[type="checkbox"] { width: auto; margin-top: 0.3rem; }
+        
+        .info-section h3 { color: var(--black); margin-bottom: 1rem; }
+        .info-item {
+            background: var(--white); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;
+            border-left: 4px solid var(--gray-dark);
+        }
+        .info-item strong { color: var(--black); display: block; margin-bottom: 0.5rem; }
+        
+        .urgency-badges {
+            display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;
+        }
+        .urgency-badge {
+            padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: bold;
+            border: 2px solid var(--gray-light);
+        }
+        .urgent { border-color: var(--gray-dark); background: var(--gray-dark); color: var(--white); }
+        
+        .btn {
+            width: 100%; background: var(--black); color: var(--white); padding: 1rem 2rem;
+            border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .btn:hover { background: var(--gray-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        .success-message {
+            display: none; background: var(--gray-dark); color: var(--white); padding: 2rem;
+            text-align: center; border-radius: 10px; margin-top: 1rem;
+        }
+        
+        footer { background: var(--gray-dark); color: var(--gray-light); text-align: center; padding: 2rem; margin-top: 4rem; }
+        .contacts { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+        .contacts a { color: var(--gray-light); text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .nav-links { 
+                display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--black);
+                flex-direction: column; padding: 1rem; gap: 1rem;
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .booking-grid { grid-template-columns: 1fr; }
+            .hero-booking h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Ремонт Телефонов Ижевск</div>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-booking">
+        <h1>Запишитесь на ремонт за 30 секунд</h1>
+        <p>Бесплатная диагностика • Срочный ремонт за 1 час • Выезд курьера бесплатно</p>
+    </section>
+
+    <div class="container">
+        <div class="booking-grid">
+            <div class="form-section">
+                <h2>Заполните заявку</h2>
+                <form id="bookingForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label>Ваше имя *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Телефон *</label>
+                        <input type="tel" id="phone" placeholder="+7 (912) 345-67-89" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Модель телефона *</label>
+                        <input type="text" id="model" placeholder="iPhone 14 Pro, Samsung S23, Xiaomi 13..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Проблема *</label>
+                        <select id="problem" required>
+                            <option value="">Выберите проблему</option>
+                            <option value="screen">Не работает экран/треснул стекло</option>
+                            <option value="battery">Села батарея/не заряжается</option>
+                            <option value="charging">Не заряжается/сломан разъем</option>
+                            <option value="water">Утопленник/был контакт с водой</option>
+                            <option value="data">Потеря данных/не включается</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Желаемая дата</label>
+                        <input type="date" id="date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Удобное время</label>
+                        <select id="time">
+                            <option value="">Как можно скорее</option>
+                            <option value="10:00">10:00 - 11:00</option>
+                            <option value="12:00">12:00 - 13:00</option>
+                            <option value="14:00">14:00 - 15:00</option>
+                            <option value="16:00">16:00 - 17:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="urgent" value="urgent">
+                        <label for="urgent" style="font-weight: normal; cursor: pointer;">
+                            Срочно! Готов приехать в ближайший час (+200 руб.)
+                        </label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="courier" value="courier">
+                        <label for="courier" style="font-weight: normal; cursor: pointer;">
+                            Выезд курьера бесплатно (в пределах Ижевска)
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Записаться на ремонт</button>
+                    <div id="successMessage" class="success-message">
+                        <h3>✅ Заявка принята!</h3>
+                        <p>Мы перезвоним вам в течение 5 минут для подтверждения.</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="info-section">
+                <h3>Почему стоит записаться именно к нам?</h3>
+                
+                <div class="info-item">
+                    <strong>🎯 Бесплатная диагностика</strong>
+                    <p>Проверяем телефон за 15 минут, называем точную стоимость. Ничего не навязываем.</p>
+                </div>
+                
+                <div class="info-item">
+                    <strong>⚡ Срочный ремонт</strong>
+                    <div class="urgency-badges">
+                        <span class="urgency-badge urgent">Экран — 40 мин</span>
+                        <span class="urgency-badge urgent">Батарея — 30 мин</span>
+                        <span class="urgency-badge">Разъем — 20 мин</span>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <strong>🚚 Бесплатная доставка</strong>
+                    <p>Курьер заберет телефон из любой точки Ижевска и вернет обратно. Работаем 7 дней в неделю.</p>
+                </div>
+                
+                <div class="info-item">
+                    <strong>🛡️ Гарантия 12 месяцев</strong>
+                    <p>Если телефон сломается повторно — чиним бесплатно. Даже если виноваты вы.</p>
+                </div>
+                
+                <div class="info-item">
+                    <strong>📱 Все бренды и модели</strong>
+                    <p>iPhone, Samsung, Xiaomi, Huawei, Realme, Poco, Sony, Nokia — от 2010 года выпуска.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacts">
+        <div class="container">
+            <h3>Не хотите заполнять форму?</h3>
+            <p>Ижевск, ул. Примерная, 123 (центр города)</p>
+            <p>🕒 Пн-Вс: 9:00-20:00 | 📞 +7 (912) 345-67-89</p>
+            <div class="contacts">
+                <a href="tel:+79123456789">Позвонить сейчас</a>
+                <a href="mailto:info@remont-telefonov-izhevsk.ru">Написать</a>
+                <a href="#">WhatsApp</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2026 Ремонт Телефонов Ижевск. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+        
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('bookingForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+
+            console.log('Заявка:', {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                model: document.getElementById('model').value,
+                urgent: document.getElementById('urgent').checked
+            });
+            
+
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('8')) value = '7' + value.slice(1);
+            if (value.startsWith('7')) {
+                value = value.replace(/(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, '+7 ($1$2) $3-$4-$5');
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
