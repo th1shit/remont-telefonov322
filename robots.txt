@@ -4,4 +4,4 @@ Disallow: /backup/
 Disallow: /tmp/
 Allow: /
 
-Sitemap: https://remont-telefonov-izhevsk.ru/sitemap.xml
+Sitemap: https://remont-telefonov322.vercel.app/sitemap.xml
